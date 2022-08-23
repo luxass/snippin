@@ -1,7 +1,7 @@
 import { withTRPC } from '@trpc/next';
 import { SessionProvider } from 'next-auth/react';
 import { AppProps } from 'next/app';
-import { AppRouter } from '../server/router';
+import { AppRouter } from '@server/router';
 import superjson from "superjson";
 
 

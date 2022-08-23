@@ -1,35 +1,38 @@
-import { env } from "./src/env/server.mjs";
+import { env } from './src/env/server.mjs';
 
 /**
  * @template {import('next').NextConfig} T
  * @param {T} config - A generic parameter that flows through to the return type
  */
- function defineConfig(config) {
+function defineConfig(config) {
   return config;
 }
 
 export default defineConfig({
   swcMinify: true,
   reactStrictMode: true,
+  images: {
+    domains: ['avatars.githubusercontent.com']
+  },
   async rewrites() {
     return {
       beforeFiles: [
         {
-          source: "/:path*",
+          source: '/:path*',
           has: [
             {
-              type: "host",
-              value: "snippin.luxass.dev",
+              type: 'host',
+              value: 'snippin.luxass.dev'
             },
             {
-              type: "header",
-              key: "Snippin-Registry",
-              value: "snippin-explorer"
+              type: 'header',
+              key: 'Snippin-Registry',
+              value: 'snippin-explorer'
             }
           ],
-          destination: "/api/snippin/:path*",
+          destination: '/api/snippin/:path*'
         }
       ]
-    }
+    };
   }
-})
+});
