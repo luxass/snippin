@@ -1,10 +1,14 @@
+import DashboardLayout from "@layout/DashboardLayout";
+import { trpc } from "@lib/trpc";
 import { GetServerSidePropsContext } from "next";
+import { Session } from "next-auth";
 import { useSession } from "next-auth/react";
 import { getAuthSession } from "../../lib/auth";
 
 export default function Dashboard() {
-  const { data, status } = useSession()
+  const { data: session } = trpc.useQuery(['session.getSession']);
 
+  
   // if (status === "loading") {
   //   return <p>Loading...</p>
   // }
@@ -13,22 +17,14 @@ export default function Dashboard() {
   //   return <p>Access Denied</p>
   // }
 
-  if (!data) {
+  if (!session) {
     return <p>No data</p>
   }
 
   return (
-    <>
+    <DashboardLayout>
       <h1>Protected Page</h1>
       <p>You can view this page because you are signed in.</p>
-    </>
+    </DashboardLayout>
   )
 }
-
-export const getServerSideProps = async (ctx: GetServerSidePropsContext) => {
-  return {
-    props: {
-      session: await getAuthSession(ctx),
-    },
-  };
-};

@@ -30,7 +30,7 @@ export default defineConfig({
               value: 'snippin-explorer'
             }
           ],
-          destination: '/api/snippin/:path*'
+          destination: '/snippets/:path*'
         }
       ]
     };
