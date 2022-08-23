@@ -10,5 +10,26 @@ import { env } from "./src/env/server.mjs";
 
 export default defineConfig({
   swcMinify: true,
-  reactStrictMode: true
+  reactStrictMode: true,
+  async rewrites() {
+    return {
+      beforeFiles: [
+        {
+          source: "/:path*",
+          has: [
+            {
+              type: "host",
+              value: "snippin.luxass.dev",
+            },
+            {
+              type: "header",
+              key: "Snippin-Registry",
+              value: "snippin-explorer"
+            }
+          ],
+          destination: "/api/snippin/:path*",
+        }
+      ]
+    }
+  }
 })

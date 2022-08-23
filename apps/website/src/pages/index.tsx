@@ -3,7 +3,7 @@ import Head from 'next/head';
 import { trpc } from '../lib/trpc';
 
 export default function HomePage() {
-  const hello = trpc.useQuery(['question.getSession']);
+  const hello = trpc.useQuery(['example.getAll']);
 
   return (
     <>

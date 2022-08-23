@@ -1,0 +1,42 @@
+{
+  "name": "snippin",
+  "version": "0.0.1",
+  "description": "",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
+    }
+  },
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch"
+  },
+  "repository": "https://github.com/luxass/snippin/blob/main/packages/next",
+  "keywords": [],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/luxass/snippin/issues"
+  },
+  "homepage": "https://github.com/luxass/snippin/blob/main/packages/web#readme",
+  "author": {
+    "name": "Lucas Norgaard",
+    "email": "lucasnrgaard@gmail.com",
+    "url": "https://luxass.dev"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.13",
+    "@types/express-serve-static-core": "^4.17.30"
+  },
+  "dependencies": {
+    "express": "^4.17.13",
+    "snippin-express": "workspace:*"
+  }
+}
