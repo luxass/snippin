@@ -1,8 +1,10 @@
+import clsx from 'clsx';
 import { Session } from 'next-auth';
 import Image from 'next/image';
 
 import { Menu } from '@headlessui/react';
-import { ChevronDownIcon, ChevronUpIcon } from '@heroicons/react/solid';
+import { ChevronDownIcon, ChevronUpIcon, LogoutIcon } from '@heroicons/react/outline';
+import { signOut } from "next-auth/react";
 
 interface Props {
   session: Session;
@@ -56,6 +58,24 @@ export default function ProfileDropdown({ session }: Props) {
                       <ChevronDownIcon className="mr-2 h-5 w-5" aria-hidden="true" />
                     )}
                     Duplicate
+                  </button>
+                )}
+              </Menu.Item>
+              <Menu.Item>
+                {({ active }) => (
+                  <button
+                    className={clsx(
+                      {
+                        'bg-violet-500 text-white': active,
+                        'text-gray-900': !active
+                      },
+                      'group flex w-full items-center rounded-md px-2 py-2 text-sm'
+                    )}
+                    onClick={() => signOut({
+                      callbackUrl: '/',
+                    })}>
+                    <LogoutIcon className="mr-2 h-5 w-5" aria-hidden="true" />
+                    Logout
                   </button>
                 )}
               </Menu.Item>

@@ -8,15 +8,6 @@ import { getAuthSession } from "../../lib/auth";
 export default function Dashboard() {
   const { data: session } = trpc.useQuery(['session.getSession']);
 
-  
-  // if (status === "loading") {
-  //   return <p>Loading...</p>
-  // }
-
-  // if (status === "unauthenticated") {
-  //   return <p>Access Denied</p>
-  // }
-
   if (!session) {
     return <p>No data</p>
   }
