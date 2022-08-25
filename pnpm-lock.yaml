@@ -51,6 +51,7 @@ importers:
       superjson: ^1.9.1
       tailwindcss: ^3.1.8
       typescript: 4.7.4
+      ui: workspace:*
       zod: ^3.18.0
     dependencies:
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
@@ -68,6 +69,7 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-query: 3.39.2_biqbaboplfbrettd7655fr4n2y
       superjson: 1.9.1
+      ui: link:../../packages/ui
       zod: 3.18.0
     devDependencies:
       '@types/node': 18.0.0
@@ -109,6 +111,21 @@ importers:
       typescript: 4.7.4
       vite: 2.9.15
       vue-tsc: 0.34.17_typescript@4.7.4
+
+  packages/ui:
+    specifiers:
+      '@types/react': 18.0.14
+      '@types/react-dom': 18.0.5
+      class-variance-authority: ^0.2.3
+      clsx: ^1.2.1
+      react: 18.2.0
+    dependencies:
+      class-variance-authority: 0.2.3
+      clsx: 1.2.1
+    devDependencies:
+      '@types/react': 18.0.14
+      '@types/react-dom': 18.0.5
+      react: 18.2.0
 
 packages:
 
@@ -1404,6 +1421,15 @@ packages:
   /ci-info/3.3.2:
     resolution: {integrity: sha512-xmDt/QIAdeZ9+nfdPsaBCpMvHNLFiLdjj59qjqn+6iPe6YmHGQ35sBnQ8uslRBXFmXkiZQOJRjvQeoGppoTjjg==}
     dev: true
+
+  /class-variance-authority/0.2.3:
+    resolution: {integrity: sha512-q3VGDidOOFp5yqNpUljA8L6N78gdOPhP5oeFJPaGRnCAPRmyAw65qo+Kw2WVfKq9uiR1de7HzlcvTN871Gks/g==}
+    peerDependencies:
+      typescript: '>= 4.5.5 < 5'
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+    dev: false
 
   /clean-regexp/1.0.0:
     resolution: {integrity: sha512-GfisEZEJvzKrmGWkvfhgzcz/BllN1USeqD2V6tg14OAOgaCD2Z/PUEuxnAZ/nPvmaHRG7a8y77p1T/IRQ4D1Hw==}
@@ -3806,7 +3832,6 @@ packages:
     engines: {node: '>=0.10.0'}
     dependencies:
       loose-envify: 1.4.0
-    dev: false
 
   /read-cache/1.0.0:
     resolution: {integrity: sha512-Owdv/Ft7IjOgm/i0xvNDZ1LrRANRfew4b2prF3OWMQLxLfu3bS8FVhCsrSCMK4lR56Y9ya+AThoTpDCTxCmpRA==}

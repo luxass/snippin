@@ -70,7 +70,7 @@ model User {
   accounts      Account[]
   sessions      Session[]
   snippets      Snippet[]
-  settings      Settings?
+  settings      Setting[]
   collections   Collection[]
 }
 
@@ -82,9 +82,12 @@ model VerificationToken {
   @@unique([identifier, token])
 }
 
-model Settings {
-  id     String @id @default(cuid())
-  userId String @unique
-  theme  String @default("light")
-  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+model Setting {
+  id        String   @id @default(cuid())
+  userId    String   @unique
+  value     String
+  key       String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }

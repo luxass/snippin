@@ -1,4 +1,4 @@
-
+import { Settings } from '@prisma/client';
 import { TRPCError } from '@trpc/server';
 
 import { createRouter } from './context';
@@ -13,6 +13,15 @@ export const userRouter = createRouter()
   .query('getUser', {
     async resolve({ ctx }) {
       return await ctx.prisma.user.findUnique({
+        where: {
+          id: ctx.session?.user?.id
+        }
+      });
+    }
+  })
+  .query('getSettings', {
+    async resolve({ ctx }) {
+      return await ctx.prisma.settings.findUnique({
         where: {
           id: ctx.session?.user?.id
         }
