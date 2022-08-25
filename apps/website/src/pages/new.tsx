@@ -29,12 +29,16 @@ export default function New() {
     <NewSnippetLayout>
       <SandpackProvider
         theme="dark"
-        template="react-ts"
         files={{
+          'package.json': '{}',
           'index.tsx': `export default function App() {
             return <h1>Hello Sandpack</h1>
           }`,
+        }}
+        customSetup={{
+          entry: "/package.json",
         }}>
+          
         <SnippetEditor />
       </SandpackProvider>
     </NewSnippetLayout>

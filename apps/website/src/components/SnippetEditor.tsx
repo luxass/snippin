@@ -42,7 +42,7 @@ export function SnippetEditor() {
           <Editor
             width="100%"
             height="100%"
-            language="javascript"
+            language="json"
             theme="vs-dark"
             key={sandpack.activeFile}
             options={{
