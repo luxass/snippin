@@ -1,5 +1,5 @@
 import NextAuth, { type NextAuthOptions } from 'next-auth';
-import GitHubProvider from 'next-auth/providers/github';
+import GitHubProvider, { GithubProfile } from 'next-auth/providers/github';
 
 import { env } from '@env/server.mjs';
 // Prisma adapter for NextAuth, optional and can be removed
@@ -9,7 +9,7 @@ import { prisma } from '@server/db/client';
 export const authOptions: NextAuthOptions = {
   pages: {
     signIn: '/auth/login',
-    signOut: '/auth/logout',
+    signOut: '/auth/logout'
   },
   callbacks: {
     session({ session, user }) {
