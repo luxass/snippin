@@ -49,7 +49,10 @@
           "type": "array",
           "scope": "resource",
           "markdownDescription": "List of registries to use, highest priority first. You can also use directory paths.",
-          "default": ["https://snippin.luxass.dev", "lol"],
+          "default": [
+            "https://snippin.luxass.dev",
+            "lol"
+          ],
           "items": {
             "type": "string"
           }
@@ -65,5 +68,8 @@
     "@types/vscode": "^1.70.0",
     "tsup": "^6.2.2",
     "typescript": "^4.7.4"
+  },
+  "dependencies": {
+    "axios": "^0.27.2"
   }
 }

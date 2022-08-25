@@ -1,5 +1,4 @@
-import { cva } from 'class-variance-authority';
-import type { VariantProps } from 'class-variance-authority';
+import { VariantProps, cva } from 'class-variance-authority';
 import clsx from 'clsx';
 import { HTMLAttributes, forwardRef } from 'react';
 
@@ -21,16 +20,14 @@ const styles = cva('button', {
   }
 });
 
-export type StyleProps = VariantProps<typeof styles>;
-interface Props extends HTMLAttributes<HTMLInputElement>, StyleProps {}
+interface Props extends HTMLAttributes<HTMLInputElement>, VariantProps<typeof styles> {}
 
-export const Input = forwardRef<HTMLInputElement, Props>(({ className, intent, size, ...props }, ref) => {
-  console.log(intent, size);
-  
-  return (
-    <input
-      className={clsx(
-        `
+export const Input = forwardRef<HTMLInputElement, Props>(
+  ({ className, intent, size, ...props }, ref) => {
+    return (
+      <input
+        className={clsx(
+          `
         px-3 py-1 text-sm 
         rounded-md border 
         leading-7 
@@ -55,12 +52,13 @@ export const Input = forwardRef<HTMLInputElement, Props>(({ className, intent, s
         dark:focus:ring-gray-550
         dark:text-white 
         placeholder-gray-300`,
-        className
-      )}
-      ref={ref}
-      {...(props as HTMLAttributes<HTMLInputElement>)}
-    />
-  );
-});
+          className
+        )}
+        ref={ref}
+        {...(props as HTMLAttributes<HTMLInputElement>)}
+      />
+    );
+  }
+);
 
 Input.displayName = 'Input';
