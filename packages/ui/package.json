@@ -19,6 +19,8 @@
   },
   "dependencies": {
     "class-variance-authority": "^0.2.3",
-    "clsx": "^1.2.1"
+    "clsx": "^1.2.1",
+    "axios": "^0.27.2"
+    
   }
 }

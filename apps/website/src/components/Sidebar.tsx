@@ -9,7 +9,7 @@ export default function Sidebar({}: Props) {
     <aside className="w-full md:w-48 lg:w-64 bg-[#295270] bg-opacity-40 backdrop-blur p-2 flex flex-col">
       <Link href="/new" passHref>
         <a className="block bg-black bg-opacity-20 rounded px-3 py-1 hover:bg-opacity-30 my-1 text-violet-200 hover:text-white">
-          Create a new Snippet
+          Create a new Snippet Collection
         </a>
       </Link>
       <Link href="/dashboard/collections" passHref>

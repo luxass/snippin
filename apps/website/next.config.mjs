@@ -21,10 +21,6 @@ export default defineConfig({
           source: '/:path*',
           has: [
             {
-              type: 'host',
-              value: 'snippin.luxass.dev'
-            },
-            {
               type: 'header',
               key: 'Snippin-Registry',
               value: 'snippin-explorer'

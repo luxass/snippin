@@ -16,7 +16,7 @@ export default function NewSnippetLayout({ children }: PropsWithChildren<Props>)
       <div className="flex h-[calc(100vh-64px)] flex-col md:flex-row">
         <Sidebar />
         <main className="flex-1 p-2">
-          {children} {JSON.stringify(session, null, 2)} {JSON.stringify(user, null, 2)}
+          {children}
         </main>
       </div>
     </div>
