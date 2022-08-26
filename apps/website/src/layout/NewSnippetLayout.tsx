@@ -15,7 +15,7 @@ export default function NewSnippetLayout({ children }: PropsWithChildren<Props>)
       <Header />
       <div className="flex h-[calc(100vh-64px)] flex-col md:flex-row">
         <SnippetSidebar />
-        <main className="flex-1 p-2">{children}</main>
+        <main className="flex-1 p-2 flex flex-col xl:flex-row">{children}</main>
       </div>
     </div>
   );
